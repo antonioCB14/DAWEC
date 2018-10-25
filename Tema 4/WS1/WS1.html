@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>WORKSHEET 1</title>
+		<style>
+			div {
+				width: 400px;
+				height: 300px;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body ondrop="drop(event)" ondragover="allowDrop(event)">
+		<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+		<div onmousemove="movimiento(event)"></div>
+		<div id="tabla"></div>
+		<script src="index.js"></script>
+		<form>
+			<input type="button" onclick="hacerClick()" value="Haga Click" />
+		</form>
+		<p id="coordenadas"></p>
+		<img id="drag1" src="https://i.amz.mshcdn.com/VXqucsmQ2DyP9bX2HnY4deXJFF8=/950x534/filters:quality(90)/https://blueprint-api-production.s3.amazonaws.com/uploads/card/image/561647/895dd28f-2321-42d5-8370-b51096d166ed.jpg" draggable="true" ondragstart="drag(event)">
+		</div>
+	</body>
+</html>
