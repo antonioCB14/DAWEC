@@ -1,2 +1,2 @@
 # DAWEC
-Ejercicios Desarrollo Web Entorno Servidor
+Ejercicios Desarrollo Web Entorno Cliente
