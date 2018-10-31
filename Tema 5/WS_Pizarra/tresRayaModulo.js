@@ -125,7 +125,7 @@ export class tresRaya{
         }
 		if(	this.tablero[0][2] == this.tablero[1][2] && 
 			this.tablero[0][2] == this.tablero[2][2] && 
-			(this.tablero[0][2] == 1 || this.tablero[2][0] == 2)){
+			(this.tablero[0][2] == 1 || this.tablero[0][2] == 2)){
             	if(this.tablero[0][2] == 1){
 					this.gana1 = true;
 				}else{
