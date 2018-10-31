@@ -1,4 +1,4 @@
-import {tresRaya,tablero} from './puzzleModulo.js';
+import {tresRaya,tablero} from './tresRayaModulo.js';
 var nuevoTres = new tresRaya();
 
 //nuevoTres.seleccionarCasilla(0,0);
