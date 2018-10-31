@@ -84,43 +84,59 @@ class tresRaya{
     // Comprobamos todas las posibles soluciones
 	comprobarSolucion(){
         //Comprobaciones horizontales
-        if(this.tablero[0][0] == this.tablero[0][1] && this.tablero[0][0] == this.tablero[0][2] && this.tablero[0][0] != 0){
-            alert("Ha ganado el jugador "+ this.tablero[0][0]);
-            this.finalizado = true;
+		if(	this.tablero[0][0] == this.tablero[0][1] && 
+			this.tablero[0][0] == this.tablero[0][2] &&
+			this.tablero[0][0] == 1 || this.tablero[0][0] == 2){
+            	alert("Ha ganado el jugador "+ this.tablero[0][0]);
+            	this.finalizado = true;
         }
-        if(this.tablero[1][0] == this.tablero[1][1] && this.tablero[1][0] == this.tablero[1][2] && this.tablero[1][0] != 0){
-            alert("Ha ganado el jugador "+ this.tablero[1][0]);
-            this.finalizado = true;
+		if(	this.tablero[1][0] == this.tablero[1][1] &&
+			this.tablero[1][0] == this.tablero[1][2] && 
+			this.tablero[1][0] == 1 || this.tablero[1][0] == 2){
+            	alert("Ha ganado el jugador "+ this.tablero[1][0]);
+            	this.finalizado = true;
         }
-        if(this.tablero[2][0] == this.tablero[2][1] && this.tablero[2][0] == this.tablero[2][2] && this.tablero[2][0] != 0){
-            alert("Ha ganado el jugador "+ this.tablero[2][0]);
-            this.finalizado = true;
+		if(	this.tablero[2][0] == this.tablero[2][1] && 
+			this.tablero[2][0] == this.tablero[2][2] && 
+			this.tablero[2][0] == 1 || this.tablero[2][0] == 2){
+            	alert("Ha ganado el jugador "+ this.tablero[2][0]);
+            	this.finalizado = true;
         }
 
         //Comprobaciones verticales
-        if(this.tablero[0][0] == this.tablero[1][0] && this.tablero[0][0] == this.tablero[2][0] && this.tablero[0][0] != 0){
-            alert("Ha ganado el jugador "+ this.tablero[0][0]);
-            this.finalizado = true;
+		if(	this.tablero[0][0] == this.tablero[1][0] && 
+			this.tablero[0][0] == this.tablero[2][0] && 
+			this.tablero[0][0] == 1 || this.tablero[0][0] == 2){
+            	alert("Ha ganado el jugador "+ this.tablero[0][0]);
+            	this.finalizado = true;
         }
-        if(this.tablero[0][1] == this.tablero[1][1] && this.tablero[1][1] == this.tablero[2][1] && this.tablero[1][0] != 0){
-            alert("Ha ganado el jugador "+this.tablero[0][1]);
-            this.finalizado = true;
+		if(	this.tablero[0][1] == this.tablero[1][1] && 
+			this.tablero[0][1] == this.tablero[2][1] && 
+			this.tablero[0][1] == 1 || this.tablero[0][1] == 2){
+            	alert("Ha ganado el jugador "+this.tablero[0][1]);
+            	this.finalizado = true;
         }
-        if(this.tablero[0][2] == this.tablero[1][2] && this.tablero[1][2] == this.tablero[2][2] && this.tablero[2][0] != 0){
-            alert("Ha ganado el jugador "+this.tablero[0][2]);
-            this.finalizado = true;
+		if(	this.tablero[0][2] == this.tablero[1][2] && 
+			this.tablero[0][2] == this.tablero[2][2] && 
+			this.tablero[0][2] == 1 || this.tablero[2][0] == 2){
+            	alert("Ha ganado el jugador "+this.tablero[0][2]);
+            	this.finalizado = true;
         }
 
         //Comprobaciones diagonales
-        if(this.tablero[0][0] == this.tablero[1][1] && this.tablero[1][1] == this.tablero[2][2] && this.tablero[0][0] != 0){
-            alert("Ha ganado el jugador "+ this.tablero[0][0]);
-            this.finalizado = true;
+		if(	this.tablero[0][0] == this.tablero[1][1] && 
+			this.tablero[0][0] == this.tablero[2][2] && 
+			this.tablero[0][0] == 1 || this.tablero[0][0] == 2){
+            	alert("Ha ganado el jugador "+ this.tablero[0][0]);
+            	this.finalizado = true;
         }
-        if(this.tablero[0][2] == this.tablero[1][1] && this.tablero[1][1] == this.tablero[2][0] && this.tablero[0][2] != 0){
-            alert("Ha ganado el jugador "+ this.tablero[0][2]);
-            this.finalizado = true;
+		if(	this.tablero[0][2] == this.tablero[1][1] && 
+			this.tablero[0][2] == this.tablero[2][0] && 
+			this.tablero[0][2] == 1 || this.tablero[0][2] == 2){
+            	alert("Ha ganado el jugador "+ this.tablero[0][2]);
+            	this.finalizado = true;
         }
-    }
+	}
 }
 
 var traya = new tresRaya();
