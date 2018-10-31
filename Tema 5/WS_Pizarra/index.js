@@ -10,11 +10,15 @@ function seleccionarCasilla(event){
     //document.getElementById("c"+X+"f"+O).innerHTML = nuevoTres.tablero[X][O];
     if(nuevoTres.tablero[X][O] == 1){
         document.getElementById("c"+X+"f"+O).style.backgroundImage="url(https://image.flaticon.com/icons/svg/25/25298.svg)";
-        document.getElementById("c"+X+"f"+O).style.backgroundSize="50px";
+        document.getElementById("c"+X+"f"+O).style.backgroundSize="contain, cover";
+        document.getElementById("c"+X+"f"+O).style.backgroundRepeat= "no-repeat";
+        document.getElementById("c"+X+"f"+O).style.backgroundPosition= "center";
     }
     if(nuevoTres.tablero[X][O] == 2){
         document.getElementById("c"+X+"f"+O).style.backgroundImage="url(https://image.flaticon.com/icons/svg/25/25477.svg)";
-        document.getElementById("c"+X+"f"+O).style.backgroundSize="50px";
+        document.getElementById("c"+X+"f"+O).style.backgroundSize="contain, cover";
+        document.getElementById("c"+X+"f"+O).style.backgroundRepeat= "no-repeat";
+        document.getElementById("c"+X+"f"+O).style.backgroundPosition= "center";
     }
 }
 
