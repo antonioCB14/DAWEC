@@ -6,8 +6,8 @@ var nuevoTres = new tresRaya();
 function seleccionarCasilla(event){
     var X = event.target.id[1];
     var O = event.target.id[3];
-    nuevoTres.seleccionarCasilla(X,O);
-    //document.getElementById("c"+X+"f"+O).innerHTML = nuevoTres.tablero[X][O];
+    nuevoTres.seleccionarCasilla(X,O);    
+    
     if(nuevoTres.tablero[X][O] == 1){
         document.getElementById("c"+X+"f"+O).style.backgroundImage="url(https://image.flaticon.com/icons/svg/25/25298.svg)";
         document.getElementById("c"+X+"f"+O).style.backgroundSize="contain, cover";
@@ -19,6 +19,18 @@ function seleccionarCasilla(event){
         document.getElementById("c"+X+"f"+O).style.backgroundSize="contain, cover";
         document.getElementById("c"+X+"f"+O).style.backgroundRepeat= "no-repeat";
         document.getElementById("c"+X+"f"+O).style.backgroundPosition= "center";
+    }
+    if(nuevoTres.gana1 == true){
+        alert("Ganan los atravesados");
+    }
+    if(nuevoTres.gana2 == true){
+        alert("Ganan los rebolondos");
+    }
+    if(nuevoTres.finalizado == true){
+        alert("Hemos terminado ;(");
+    }
+    if(nuevoTres.nosepuede == true){
+        alert("No puedes mover ficha aquí");
     }
 }
 

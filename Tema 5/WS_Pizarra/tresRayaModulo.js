@@ -13,16 +13,15 @@
 			
 */
 export var tablero = [];
-export var finalizado;
-export var inicio;
-export var fila;
-export var columna;
 
 export class tresRaya{
 	constructor(){
 		this.tablero = tablero;
 		this.finalizado = false;
 		this.inicio = true;
+		this.gana1 = false;
+		this.gana2 = false;
+		this.nosepuede = false;
 		this.fila;
 		this.columna;
 		this.crearTablero();
@@ -54,6 +53,7 @@ export class tresRaya{
 	seleccionarCasilla(fila,columna){
 		if(this.finalizado == false){
 			if(this.tablero[fila][columna] == 0){
+				this.nosepuede = false;
 				if(this.inicio == true){
 					this.tablero[fila][columna] = "1";
 					this.inicio = false;
@@ -62,11 +62,9 @@ export class tresRaya{
 					this.inicio = true;
 				}
 			}else{
-				alert("Ya hay una ficha aquí.");
+				this.nosepuede = true;
 			}
 			this.comprobarSolucion();
-		}else{
-			alert("La partida ha terminado.");
 		}
     }
     
@@ -76,19 +74,31 @@ export class tresRaya{
 		if(	this.tablero[0][0] == this.tablero[0][1] && 
 			this.tablero[0][0] == this.tablero[0][2] &&
 			(this.tablero[0][0] == 1 || this.tablero[0][0] == 2)){
-            	alert("Ha ganado el jugador "+ this.tablero[0][0]);
+            	if(this.tablero[0][0] == 1){
+					this.gana1 = true;
+				}else{
+					this.gana2 = true;
+				}
             	this.finalizado = true;
         }
 		if(	this.tablero[1][0] == this.tablero[1][1] &&
 			this.tablero[1][0] == this.tablero[1][2] && 
 			(this.tablero[1][0] == 1 || this.tablero[1][0] == 2)){
-            	alert("Ha ganado el jugador "+ this.tablero[1][0]);
+            	if(this.tablero[1][0] == 1){
+					this.gana1 = true;
+				}else{
+					this.gana2 = true;
+				}
             	this.finalizado = true;
         }
 		if(	this.tablero[2][0] == this.tablero[2][1] && 
 			this.tablero[2][0] == this.tablero[2][2] && 
 			(this.tablero[2][0] == 1 || this.tablero[2][0] == 2)){
-            	alert("Ha ganado el jugador "+ this.tablero[2][0]);
+            	if(this.tablero[2][0] == 1){
+					this.gana1 = true;
+				}else{
+					this.gana2 = true;
+				}
             	this.finalizado = true;
         }
 
@@ -96,19 +106,31 @@ export class tresRaya{
 		if(	this.tablero[0][0] == this.tablero[1][0] && 
 			this.tablero[0][0] == this.tablero[2][0] && 
 			(this.tablero[0][0] == 1 || this.tablero[0][0] == 2)){
-            	alert("Ha ganado el jugador "+ this.tablero[0][0]);
+            	if(this.tablero[0][0] == 1){
+					this.gana1 = true;
+				}else{
+					this.gana2 = true;
+				}
             	this.finalizado = true;
         }
 		if(	this.tablero[0][1] == this.tablero[1][1] && 
 			this.tablero[0][1] == this.tablero[2][1] && 
 			(this.tablero[0][1] == 1 || this.tablero[0][1] == 2)){
-            	alert("Ha ganado el jugador "+this.tablero[0][1]);
+            	if(this.tablero[0][1] == 1){
+					this.gana1 = true;
+				}else{
+					this.gana2 = true;
+				}
             	this.finalizado = true;
         }
 		if(	this.tablero[0][2] == this.tablero[1][2] && 
 			this.tablero[0][2] == this.tablero[2][2] && 
 			(this.tablero[0][2] == 1 || this.tablero[2][0] == 2)){
-            	alert("Ha ganado el jugador "+this.tablero[0][2]);
+            	if(this.tablero[0][2] == 1){
+					this.gana1 = true;
+				}else{
+					this.gana2 = true;
+				}
             	this.finalizado = true;
         }
 
@@ -116,13 +138,21 @@ export class tresRaya{
 		if(	this.tablero[0][0] == this.tablero[1][1] && 
 			this.tablero[0][0] == this.tablero[2][2] && 
 			(this.tablero[0][0] == 1 || this.tablero[0][0] == 2)){
-            	alert("Ha ganado el jugador "+ this.tablero[0][0]);
+            	if(this.tablero[0][0] == 1){
+					this.gana1 = true;
+				}else{
+					this.gana2 = true;
+				}
             	this.finalizado = true;
         }
 		if(	this.tablero[0][2] == this.tablero[1][1] && 
 			this.tablero[0][2] == this.tablero[2][0] && 
 			(this.tablero[0][2] == 1 || this.tablero[0][2] == 2)){
-            	alert("Ha ganado el jugador "+ this.tablero[0][2]);
+            	if(this.tablero[0][2] == 1){
+					this.gana1 = true;
+				}else{
+					this.gana2 = true;
+				}
             	this.finalizado = true;
         }
 	}
