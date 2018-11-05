@@ -1,7 +1,7 @@
 /*  Haciendo uso de tu modulo, crea un juego(interfaz) debe permitir jugar(evento) !!!!!!!		*/
 
 /*  1º 	Para empezar, debes realizar un:
-			import {tresRaya,tablero} from './puzzleModulo.js';
+			import {tresRaya} from './puzzleModulo.js';
 	
 	2º	Una vez importado el modulo, tienes que llamar a:
 			var nuevoTres = new tresRaya();
@@ -10,10 +10,17 @@
 	3º	Para colocar una ficha se debe especificar de la siguiente manera:
 			nuevoTres.seleccionarCasilla(fila,columna);
 	
+	4º	Puedes usar lo siguientes métodos:
+			nuevoTres.tablero["columna"]["fila"] --> Sirve para comprobar una posición, si es 0 está libre, si es 1 es una X, si es un 2 es un O.
+			nuevoTres.gana1 --> Es un boolean, si es verdadero gana el jugador X.
+			nuevoTres.gana2 --> Es un boolean, si es verdadero gana el jugador O.
+			nuevoTres.finalizado --> Es un boolean, si es verdadero el juego ha terminado.
+			nuevoTres.nosepuede --> Es un boolena, si es verdadero indica que el hueco en el que intentas colocar una ficha está ocupado.
+	
 			
 */
-export var tablero = [];
 
+var tablero = [];
 export class tresRaya{
 	constructor(){
 		this.tablero = tablero;
