@@ -46,7 +46,7 @@ function moverBola(){
     altoPala2 = parseInt(pala2.getAttribute("height"));
     posPala2X = parseInt(pala2.getAttribute("x"));
 
-    // Cogemos la posicion de la bola
+    //Cogemos la posicion de la bola
     var posX = parseInt(circulo.getAttribute('cx'));
     var posY = parseInt(circulo.getAttribute('cy'));
   
@@ -58,12 +58,14 @@ function moverBola(){
     if (posY > 465 || posY < 35){
         velY = velY*-1;
     }
+    //Rebote con la pala 1
     if (posY >= posPala1 && 
         posY <= (posPala1+altoPala1) && 
         posX < (posPala1X+50)){
             velX = velX*-1;
             velY = velY*-1;
     }
+    //Rebote con la pala 2
     if (posY >= posPala2 && 
         posY <= (posPala2+altoPala2) && 
         posX > (posPala2X-25)){
