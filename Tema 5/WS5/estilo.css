@@ -1,0 +1,17 @@
+body{
+    background-image: url(https://st.depositphotos.com/1166351/2311/i/950/depositphotos_23115282-stock-photo-cork-seamless-texture-background.jpg);
+}
+.nota{
+    width: 15em;
+    height: 15em;
+    border: 2px solid #F3F781;
+    background-color:#F3F781;
+    margin: 10px;
+    display: inline-block;
+}
+h2,p{
+    text-align: center;
+}
+h6{
+    text-align: right;
+}
