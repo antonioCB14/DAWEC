@@ -10,8 +10,32 @@ body{
     display: inline-block;
 }
 h2,p{
-    text-align: center;
+    max-height: 6rem;/*line-height por nº de líneas*/
+    overflow: hidden;
+    text-align: center; 
 }
 h6{
     text-align: right;
+}
+#eliminar{
+    background-color: #ea1e23;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    margin-right: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    float: right;
+}
+#editar{
+    background-color: #ff9100;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    margin-right: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    float: right;
 }

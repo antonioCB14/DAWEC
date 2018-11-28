@@ -4,16 +4,14 @@
     <meta charset="utf-8" />
     <title>Worksheet 5 - Sticky Notes</title>
     <link rel="stylesheet" href="estilo.css">
-    <script type="module" src="main.js"></script>
 </head>
 <body>
-    <label for="titulo">Titulo:</label>
-    <input type="text" id="titulo" />
+    <input type="text" id="titulo" placeholder="Titulo"/>
     <br>
-    <label for="texto">Texto:</label>
-    <input type="text" id="texto" />
+    <input type="text" id="texto" placeholder="Texto"/>
     <br>
-    <input type="button" value="Crear nota" id="boton">
+    <input type="button" value="Crear nota" id="boton" onclick="crearNota()">
     <div id="panel"></div>
+    <script src="main.js"></script>
 </body>
 </html>
