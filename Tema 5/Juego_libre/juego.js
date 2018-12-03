@@ -24,7 +24,8 @@ class escena{
         this.muerte.setAttribute('width',"100%");
         this.muerte.setAttribute('height',"100%");
         this.muerte.setAttribute('object-fit',"cover");
-        document.getElementById("elDiv").appendChild(this.muerte);
+        document.getElementById("elDiv").setAttribute("hidden","");
+        document.getElementById("muerte").appendChild(this.muerte);
     }
 }
 
