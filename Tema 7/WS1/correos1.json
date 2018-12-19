@@ -1,0 +1,12 @@
+{
+    "correo":[{
+        "direccion":"abcde@gmail.com",
+        "asunto":"TEST"
+    },{
+        "direccion":"qwerty@gmail.com",
+        "asunto":"plokitffdsajflhdsjakfhdsjakfhsak"
+    },{
+        "direccion":"salty@gmail.com",
+        "asunto":"asunto guay"
+    }]
+}
