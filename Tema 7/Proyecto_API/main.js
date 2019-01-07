@@ -1,47 +1,77 @@
 //var APIKEY = "b4a327275bc141d98e06234f5f24b50e";
-var APIKEY = "adb23d5321c659bcfa65b9ad799bb755";
-function loadJSON(){
-    var xhttp, xmlDoc;
-    xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            console.log(JSON.parse(this.responseText));
-            xmlDoc = JSON.parse(this.responseText);
-            for (var i=0;i< xmlDoc.recipes.length;i++){
-                crearReceta(xmlDoc.recipes[i]);
+//var APIKEY = "adb23d5321c659bcfa65b9ad799bb755";
+//var APIKEY = "a70d9c7ffa39c292fb8bb559e2e6e154";
+//var APIKEY = "0667affcc654185df8b1cb150cc40eb4";
+var APIKEY = "b612b4852904773c807c50b992304920";
+var pagina = 1;
+var peticion = true;
+var bReceta = "";
+
+$(document).ready(function(){
+    loadJSON(pagina++);
+    var win = $(window);
+	win.scroll(function() {
+		if ($(document).height() - win.height() <= (win.scrollTop())+10) {
+            $('#loading').show();
+            if(peticion){
+                loadJSON(pagina++);
             }
+		}
+    });
+
+    $("#titulo").keypress(function(e) {
+        if(e.which == 13) {
+            buscarReceta();
         }
-    };
-    xhttp.open("GET", "https://www.food2fork.com/api/search?key="+APIKEY+"&q=chicken%20breast&page=2", true);
-    xhttp.send();
+    });
+
+    $("#logo").click(function(){
+        pagina = 1;
+        bReceta = "";
+        loadJSON(pagina++);
+    });
+    $("#logo").css('cursor','pointer');
+    $("#boton").css('cursor','pointer');
+});
+
+function loadJSON(pagina){
+    peticion = false;
+    $.ajax({
+        url: ("https://www.food2fork.com/api/search?key="+APIKEY+"&q="+bReceta+"&page="+pagina), success: function(result){
+            recetas = JSON.parse(result);
+            if (recetas.count > 0){
+                for (var i=0;i<recetas.recipes.length;i++){
+                    crearReceta(recetas.recipes[i]);
+                }
+                if(recetas.count < 8){
+                    $('#loading').hide();
+                }
+            }
+            else{
+                $('#loading').hide();
+                if(pagina == 1){
+                    console.log(pagina);
+                    $("#recipes").html("<h1>No se han encontrado recetas</h1>");
+                }
+            }
+        peticion = true;
+    }});
 }
 
 function crearReceta(receta){
-    var divrecipes = document.getElementById("recipes");
     var div = document.createElement("DIV");
     div.setAttribute('class',"receta");
-    div.innerHTML = "<img src="+receta.image_url+">"+
-                    "<h2>"+receta.title+"</h2>";
-    divrecipes.appendChild(div);
-    return div;
+    div.innerHTML = "<a href="+receta.source_url+" target='_blank'>"+
+                    "<img src="+receta.image_url+">"+
+                    "<h2>"+receta.title+"</h2>"
+                    "<h2>"+receta.title+"</h2></a>";
+    $("#recipes").append(div);
 }
 
 function buscarReceta(){
-    bReceta = document.getElementById("titulo").value;
-    var xhttp, xmlDoc;
-    xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            console.log(JSON.parse(this.responseText));
-            xmlDoc = JSON.parse(this.responseText);
-            for (var i=0;i< xmlDoc.recipes.length;i++){
-                crearReceta(xmlDoc.recipes[i]);
-            }
-        }
-    };
-    var url = "https://www.food2fork.com/api/search?key="+APIKEY+"&q="+bReceta;
-    console.log(url);
-    
-    xhttp.open("GET", url, true);
-    xhttp.send();
+    bReceta = $("#titulo").val();
+    $("#titulo").val("");
+    $("#recipes").empty();
+    pagina = 1;
+    loadJSON(pagina++);
 }
