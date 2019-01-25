@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="lista">
     <div class="w-50 mx-auto">
       <b-form-input v-model="nuevatarea" type="text" placeholder="¿Qué quieres recordar?" @keyup.native.enter="annadirTarea()"></b-form-input>
     </div>
@@ -68,7 +68,7 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Lista',
   data: function() {
     return {
       nuevatarea: '',

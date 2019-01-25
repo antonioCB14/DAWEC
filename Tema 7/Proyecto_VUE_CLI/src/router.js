@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
-import About from './views/About.vue'
+import Notas from './views/Notas.vue'
+import ElTiempo from './views/ElTiempo.vue'
 
 Vue.use(Router)
 
@@ -10,12 +10,12 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Notas
     },
     {
       path: '/tiempo',
       name: 'tiempo',
-      component: About
+      component: ElTiempo
     }
   ]
 })

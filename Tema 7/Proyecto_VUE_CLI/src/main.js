@@ -12,9 +12,10 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faAngleUp, faAngleDown, faMinusCircle, faChartBar, faTimes, faTemperatureLow, faTemperatureHigh, faTint, faSun, faAngleDoubleUp, faAngleDoubleDown, faCloud } from '@fortawesome/free-solid-svg-icons'
 import { faCircle, faCheckCircle, faClock } from '@fortawesome/free-regular-svg-icons'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faAngleDown,faAngleUp,faMinusCircle,faCheckCircle,faCircle,faChartBar,faTimes,faClock,faTemperatureLow,faTemperatureHigh,faTint,faSun,faAngleDoubleUp,faAngleDoubleDown,faCloud)
+library.add(faGithub,faAngleDown,faAngleUp,faMinusCircle,faCheckCircle,faCircle,faChartBar,faTimes,faClock,faTemperatureLow,faTemperatureHigh,faTint,faSun,faAngleDoubleUp,faAngleDoubleDown,faCloud)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

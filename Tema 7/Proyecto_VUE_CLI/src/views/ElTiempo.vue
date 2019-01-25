@@ -7,7 +7,7 @@
 </template>
 
 <script>
-// @ is an alias to /src
+
 import Tiempo from '@/components/Tiempo.vue'
 
 export default {
