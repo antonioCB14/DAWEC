@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+<body>
+    <div id="app">
+        <input v-model="nuevatarea" placeholder="Nombre de la tarea" @keyup.enter="annadirTarea()">
+        <h1>{{porCompletar}} pendientes de un total de {{tareas.length}} </h1>
+        <template v-for="item in tareas">
+            <input type="checkbox" id="completadas" value="Completadas" v-model="estado">
+            <label for="completadas">{{item.Tarea}}</label>
+            <p>Prioridad: {{item.Prioridad}}        Creado el {{item.Fecha_Creacion}}</p>
+            <p>{{item.Completada}}</p>
+            <button>Completar</button>
+            <hr>
+        </template>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
