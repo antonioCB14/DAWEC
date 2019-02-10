@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Socket.IO chat</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font: 13px Helvetica, Arial;
+    }
+
+    form {
+      background: #000;
+      padding: 3px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    form input {
+      border: 0;
+      padding: 10px;
+      width: 90%;
+      margin-right: .5%;
+    }
+
+    form button {
+      width: 9%;
+      background: rgb(130, 224, 255);
+      border: none;
+      padding: 10px;
+    }
+
+    #messages {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    #messages li {
+      padding: 5px 10px;
+    }
+
+    #messages li:nth-child(odd) {
+      background: #eee;
+    }
+  </style>
+</head>
+
+<body>
+  <ul id="messages"></ul>
+  <p id="estado"></p>
+  <form action="">
+    <input id="m" autocomplete="off" /><button>Send</button>
+  </form>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+  <script>
+    var escribiendo = false;
+    var username = "";
+    while (username.length < 1){
+      username = prompt("Please enter your name");
+    }
+    var conectado = true;
+    var ultimaVezEscribiendo = "";
+    $(function () {
+      const actualizarEscribiendo = () => {
+        if (conectado) {
+          if (!escribiendo) {
+            escribiendo = true;
+            socket.emit('escribiendo', username);
+          }
+          ultimaVezEscribiendo = (new Date()).getTime();
+
+          setTimeout(() => {
+            var typingTimer = (new Date()).getTime();
+            var timeDiff = typingTimer - ultimaVezEscribiendo;
+            if (timeDiff >= 400 && escribiendo) {
+              socket.emit('sin escribir');
+              escribiendo = false;
+            }
+          }, 400);
+        }
+      }
+
+      $("#m").on('input', () => {
+        actualizarEscribiendo();
+      });
+
+      var socket = io();
+      $('form').submit(function (e) {
+        e.preventDefault(); // prevents page reloading
+        socket.emit('chat message', $('#m').val(), $username);
+        $('#m').val('');
+        return false;
+      });
+      socket.on('chat message', function (msg, username) {
+        $('#messages').append($('<li>').text(username + ":" + msg));
+      });
+      socket.on('escribiendo', function (username) {
+        $('#estado').text(username + " escribiendo");
+      });
+      socket.on('sin escribir', function (e) {
+        $('#estado').text("");
+      });
+    });
+  </script>
+</body>
+</html>
